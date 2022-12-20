@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <h1 class="jumbotron text-center"><%= title %></h1>
+    <div class="row">
+      <form action="/" method="GET">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-success" type="submit">Random Joke</button>
+          </span>
+        </div>
+      </form>
+    </div>
+
+    <% if (joke) { %>
+    <div class="joke">
+      <p><%=joke.value%></p>
+    </div>
+    <% } %>
+
+    <form action="/category" method="GET" n>
+      <div class="categories">
+        <% category.forEach(c => {%>
+        <ul>
+          <li><input name="category" type="radio" value="<%=c%>" /><%= c %></li>
+        </ul>
+        <% }); %>
+      </div>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-success" type="submit">
+            Get Chuck Norris Joke By Category!
+          </button>
+        </span>
+      </div>
+    </form>
+  </body>
+</html>
